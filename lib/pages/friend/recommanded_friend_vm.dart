@@ -8,7 +8,7 @@ class RecommandedFriendViewModel extends ChangeNotifier {
 
   ///获取推荐好友
   load() async {
-    recommandedFriend = await Api.instance.getRecomanndedFriends();
+   //recommandedFriend = await Api.instance.getRecomanndedFriends();
   }
 
   ///发送好友申请

@@ -383,11 +383,11 @@ class Api {
   }
 
   ///获取推荐好友
-  Future<List<UserInfoData>> getRecomanndedFriends() async {
+  Future<List<SearchForUserData>> getRecomanndedFriends() async {
     Response response = await DioInstance.instance().get(
       path: "/api/friend/getrecommandedfriends",
     );
     final List list = response.data['data'];
-    return list.map((e) => UserInfoData.fromJson(e)).toList();
+    return list.map((e) => SearchForUserData.fromJson(e)).toList();
   }
 }

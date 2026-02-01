@@ -24,7 +24,7 @@ class _AddfriendPageState extends State<AddfriendPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => AddFriendViewModel(),
+      create: (_) => AddFriendViewModel()..getRecommandedFriends(),
       child: Scaffold(
         appBar: AppBar(title: const Text('add a friend')),
         body: Padding(
@@ -46,6 +46,21 @@ class _AddfriendPageState extends State<AddfriendPage> {
                       vm.searchForUsers(value);
                     },
                   ),
+                  const SizedBox(height: 12),
+
+                  if (_searchController.text.isEmpty)
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Recommended Friends',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+
                   const SizedBox(height: 16),
                   Expanded(
                     child: vm.users.isEmpty

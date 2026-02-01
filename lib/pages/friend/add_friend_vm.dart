@@ -22,6 +22,12 @@ class AddFriendViewModel extends ChangeNotifier {
     });
   }
 
+  ///获取推荐好友
+  void getRecommandedFriends() async {
+    users = await Api.instance.getRecomanndedFriends();
+    notifyListeners();
+  }
+
   ///发送好友申请
   void sendFriendRequest(SearchForUserData user) async {
     user.status = 2;
